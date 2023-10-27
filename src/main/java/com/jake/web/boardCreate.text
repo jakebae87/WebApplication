@@ -1,0 +1,37 @@
+[board 테이블 생성]
+create  table board (    
+seq int(5) primary key AUTO_Increment,
+id varchar(10) not null,
+title varchar(200) not null,
+content Text(2000),
+regdate  datetime DEFAULT CURRENT_TIMESTAMP,
+cnt int default 0
+);
+
+[board 테이블 더미 데이터 입력]
+insert into board (id,title,content) values('케케','호호','흐흐흐흐');
+insert into board (id,title,content) values('호옹이','크크크크크크','신나요');
+insert into board (id,title,content) values('나루토','바위','나선환');
+insert into board (id,title,content) values('사스케','가위','치도리');
+insert into board (id,title,content) values('히나타','주먹','낄낄낄');
+insert into board (id,title,content) values('자동차','부르릉','낄낄낄');
+insert into board (id,title,content) values('비행기','슈웅','낄낄낄');
+insert into board (id,title,content) values('지하철','칙칙','낄낄낄');
+insert into board (id,title,content) values('전동차','부우웅','낄낄낄');
+
+---------------------------------------------------------------------------------
+
+[reply 테이블 생성]
+create  table reply (    
+seq int(5) primary key AUTO_Increment,
+post int(5),
+id varchar(10) not null,
+content Text(200),
+regdate  datetime DEFAULT CURRENT_TIMESTAMP,
+foreign key (post) references board(seq) on update cascade on delete restrict
+);
+
+[reply 테이블 더미 데이터 입력]
+insert into reply (post,id,content) values(1,'test1','낄낄낄');
+insert into reply (post,id,content) values(1,'test1','호호호');
+insert into reply (post,id,content) values(1,'test1','히히히');
