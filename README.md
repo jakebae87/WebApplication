@@ -15,7 +15,10 @@ grant all privileges on web_project.* to web_user@localhost;<br><hr>
 create  table member (    
 id varchar(10) primary key, password varchar(10), name varchar(30),<br>
 age int(3) not null, jno int(1), info varchar(30), point float(7,2),<br>
-birthday varchar(10), rid varchar(10)); <br><br>
+birthday varchar(10), rid varchar(10));
+<br><br>
+이미지를 추가하기 위해 member table에 column 추가<br>
+alter table member add uploadfile varchar(50) default "resources/uploadImages/basicman4.png";
 
 [jo 테이블 생성]<br>
 create table jo (<br>
