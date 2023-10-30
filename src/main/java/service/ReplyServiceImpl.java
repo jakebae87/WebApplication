@@ -26,13 +26,13 @@ public class ReplyServiceImpl implements ReplyService {
 	}
 
 	@Override
-	public int insert(ReplyDTO dto, int seq) {
-		return dao.insert(dto, seq);
+	public int insert(ReplyDTO dto) {
+		return dao.insert(dto);
 	}
 
 	@Override
-	public int update(ReplyDTO dto, int seq) {
-		return dao.update(dto, seq);
+	public int update(ReplyDTO dto) {
+		return dao.update(dto);
 	}
 
 	@Override

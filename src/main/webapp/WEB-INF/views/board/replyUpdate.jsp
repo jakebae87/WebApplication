@@ -22,7 +22,7 @@
 				<th bgcolor="Violet">I D</th>
 				<td><input type="text" name="id"
 					value="${sessionScope.loginID}" readonly size="20"> <input
-					type="hidden" name="boardSeq" value="${requestScope.banana.post }"
+					type="hidden" name="post" value="${requestScope.banana.post }"
 					readonly="readonly" /></td>
 			</tr>
 			<tr height="40">

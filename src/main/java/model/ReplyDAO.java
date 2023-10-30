@@ -46,11 +46,11 @@ public class ReplyDAO {
 		return list;
 	} // selectList
 
-	public int insert(ReplyDTO dto, int seq) {
+	public int insert(ReplyDTO dto) {
 		sql = "insert into reply (post,id,content) values (?,?,?); ";
 		try {
 			pst = cn.prepareStatement(sql);
-			pst.setInt(1, seq);
+			pst.setInt(1, dto.getPost());
 			pst.setString(2, dto.getId());
 			pst.setString(3, dto.getContent());
 
@@ -62,12 +62,12 @@ public class ReplyDAO {
 		}
 	} // insert
 
-	public int update(ReplyDTO dto, int seq) {
+	public int update(ReplyDTO dto) {
 		sql = "update reply set content = ? where post = ? and seq = ?";
 		try {
 			pst = cn.prepareStatement(sql);
 			pst.setString(1, dto.getContent());
-			pst.setInt(2, seq);
+			pst.setInt(2, dto.getPost());
 			pst.setInt(3, dto.getSeq());
 			return pst.executeUpdate(); // 처리갯수
 		} catch (Exception e) {

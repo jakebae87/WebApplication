@@ -17,7 +17,7 @@
 				<th bgcolor="Violet">아이디</th>
 				<td><input type="text" name="id"
 					value="${sessionScope.loginID}" readonly size="20"> <input
-					type="hidden" name="boardSeq" value="${requestScope.number.seq }" /></td>
+					type="hidden" name="post" value="${requestScope.number.post }" /></td>
 			</tr>
 			<tr height="40">
 				<th bgcolor="Violet">댓글내용</th>

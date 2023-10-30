@@ -8,10 +8,8 @@ import domain.ReplyDTO;
 
 public interface BoardService {
 
-	// ** selectList
 	List<BoardDTO> selectList();
 
-	// ** selectOne
 	BoardDTO selectOne(BoardDTO vo);
 
 	int insert(BoardDTO dto);

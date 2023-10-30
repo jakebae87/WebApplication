@@ -78,7 +78,7 @@
 
 	<!-- 로그인한 경우에 새글등록, 답글등록 -->
 	<a class="button" href="boardWrite">글작성</a>&nbsp;&nbsp;
-	<a class="button" href="replyWrite?seq=${requestScope.apple.seq}">댓글작성</a>&nbsp;&nbsp;
+	<a class="button" href="replyWrite?post=${requestScope.apple.seq}">댓글작성</a>&nbsp;&nbsp;
 
 	<!-- 로그인 id와 글쓴이 id가 동일하면 수정과 삭제 가능 -->
 	<c:if test="${requestScope.apple.id == sessionScope.loginID }">

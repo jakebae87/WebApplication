@@ -69,7 +69,7 @@ public class BoardController {
 
 	// 글수정
 	@PostMapping(value = "/update")
-	public String update(BoardDTO dto, Model model,RedirectAttributes rttr) {
+	public String update(BoardDTO dto, Model model, RedirectAttributes rttr) {
 		model.addAttribute("apple", dto);
 		String uri = "redirect:boardDetail?seq=" + dto.getSeq();
 
@@ -104,11 +104,11 @@ public class BoardController {
 	}
 
 	@PostMapping(value = "/replyWrite")
-	public String write(ReplyDTO dto, Model model, RedirectAttributes rttr, @RequestParam("boardSeq") int seq) {
+	public String write(ReplyDTO dto, Model model, RedirectAttributes rttr) {
 
-		String uri = "redirect:boardDetail?seq=" + seq;
+		String uri = "redirect:boardDetail?seq=" + dto.getPost();
 
-		if (rservice.insert(dto, seq) > 0) {
+		if (rservice.insert(dto) > 0) {
 			rttr.addFlashAttribute("message", "댓글 등록 성공");
 		} else {
 			model.addAttribute("message", "댓글 등록 실패");
@@ -123,10 +123,10 @@ public class BoardController {
 	}
 
 	@PostMapping(value = "/replyUpdate")
-	public String update(ReplyDTO dto, Model model, RedirectAttributes rttr, @RequestParam("boardSeq") int seq) {
+	public String update(ReplyDTO dto, Model model, RedirectAttributes rttr) {
 
-		String uri = "redirect:boardDetail?seq=" + seq;
-		if (rservice.update(dto, seq) > 0) {
+		String uri = "redirect:boardDetail?seq=" + dto.getPost();
+		if (rservice.update(dto) > 0) {
 			rttr.addFlashAttribute("message", "댓글 수정 성공");
 		} else {
 			model.addAttribute("message", "댓글 수정 실패");

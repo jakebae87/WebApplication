@@ -7,15 +7,13 @@ import domain.ReplyDTO;
 
 public interface ReplyService {
 
-	// ** selectList
 	List<ReplyDTO> selectList(BoardDTO dto);
 
-	// ** selectOne
 	ReplyDTO selectOne(ReplyDTO vo);
 
-	int insert(ReplyDTO dto, int seq);
+	int insert(ReplyDTO dto);
 
-	int update(ReplyDTO dto, int seq);
+	int update(ReplyDTO dto);
 
 	int delete(ReplyDTO dto);
 
