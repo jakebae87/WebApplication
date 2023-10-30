@@ -7,13 +7,12 @@ import org.springframework.stereotype.Service;
 
 import domain.BoardDTO;
 import domain.ReplyDTO;
-import model.BoardDAO;
-import model.ReplyDAO;
+import mapperInterface.ReplyMapper;
 
 @Service
-public class ReplyServiceImpl implements ReplyService {
+public class ReplyServiceImpl implements ReplyMapper {
 	@Autowired
-	ReplyDAO dao;
+	ReplyMapper dao;
 
 	@Override
 	public List<ReplyDTO> selectList(BoardDTO dto) {

@@ -7,23 +7,21 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import domain.BoardDTO;
-import domain.MemberDTO;
 import domain.ReplyDTO;
 import lombok.AllArgsConstructor;
-import service.BoardService;
-import service.ReplyService;
+import service.BoardServiceImpl;
+import service.ReplyServiceImpl;
 
 @AllArgsConstructor
 @RequestMapping("/board")
 @Controller
 public class BoardController {
 
-	BoardService service;
-	ReplyService rservice;
+	BoardServiceImpl service;
+	ReplyServiceImpl rservice;
 
 	// 글목록
 	@GetMapping(value = "/boardList")

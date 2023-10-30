@@ -9,16 +9,16 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import domain.JoDTO;
 import lombok.AllArgsConstructor;
-import service.JoService;
-import service.MemberService;
+import service.JoServiceImpl;
+import service.MemberServiceImpl;
 
 @AllArgsConstructor
 @RequestMapping("/jo")
 @Controller
 public class JoController {
 
-	JoService service;
-	MemberService mservice;
+	JoServiceImpl service;
+	MemberServiceImpl mservice;
 
 	@GetMapping(value = "/joList")
 	public void joList(Model model) {

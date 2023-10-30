@@ -7,13 +7,14 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import domain.MemberDTO;
+import mapperInterface.MemberMapper;
 import model.MemberDAO;
 
 @Service
-public class MemberServiceImpl implements MemberService {
+public class MemberServiceImpl implements MemberMapper {
 	// ** 전역변수 정의
 	@Autowired
-	MemberDAO dao;
+	MemberMapper dao;
 
 	// ** selectList
 	@Override

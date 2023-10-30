@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapperInterface.BoardMapper">
+
+	<select id="selectList" resultType="domain.BoardDTO">
+		select * from board order by seq desc
+	</select>
+
+	<select id="selectOne" resultType="domain.BoardDTO">
+		select * from board where seq=#{seq}
+		<!-- #{} 내부의 seq는 알아서 찾아서 넣어준다 -->
+	</select>
+
+	<insert id="insert">
+		<!-- insert, update, delete의 resultType은 따로 설정 안해줘도 태그를 보고 알아서 int 반환한다. -->
+		<selectKey keyProperty="seq" resultType="int" order="BEFORE">
+			select IFNULL(max(seq),0)+1 from board
+		</selectKey>
+		insert into board (seq, id, title, content)
+		values(#{seq}, #{id}, #{title}, #{content})
+	</insert>
+
+	<update id="update">
+		update board set title = #{title}, content = #{content} where seq = #{seq}
+	</update>
+	
+	<delete id="delete">
+		delete from board where seq = #{seq}
+	</delete>
+	
+	<update id="updateReadCount">
+		update board set cnt = cnt + 1 where seq=#{seq}
+	</update>
+
+</mapper>

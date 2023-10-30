@@ -1,5 +1,7 @@
 package domain;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -22,5 +24,6 @@ public class MemberDTO {
 	private double point;
 	private String birthday;
 	private String rid;
-	
+	private String uploadfile;
+	private MultipartFile uploadfilef;
 }

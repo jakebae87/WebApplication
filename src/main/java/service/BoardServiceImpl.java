@@ -7,13 +7,14 @@ import org.springframework.stereotype.Service;
 
 import domain.BoardDTO;
 import domain.MemberDTO;
+import mapperInterface.BoardMapper;
 import model.BoardDAO;
 
 @Service
-public class BoardServiceImpl implements BoardService {
+public class BoardServiceImpl implements BoardMapper {
 	// ** 전역변수 정의
 	@Autowired
-	BoardDAO dao;
+	BoardMapper dao;
 
 	// ** selectList
 	@Override

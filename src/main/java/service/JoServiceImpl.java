@@ -6,12 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import domain.JoDTO;
+import mapperInterface.JoMapper;
 import model.JoDAO;
 
 @Service
-public class JoServiceImpl implements JoService {
+public class JoServiceImpl implements JoMapper {
 	@Autowired
-	JoDAO dao;
+	JoMapper dao;
 
 	@Override
 	public List<JoDTO> selectList() {

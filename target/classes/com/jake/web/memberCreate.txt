@@ -28,3 +28,8 @@ insert into jo values(3, "i4", 'jeseung', "단Dog", "반려동물 한마리 한�
 insert into jo values(4,"최고조", 'ezirenge',"tbtConcept","열정빼면 시체");
 insert into jo values(5, "오조", 'wonee512', "Ojoa", "완주 아니면 죽음뿐");
 insert into jo values(7, "관리조", 'admin', "관리팀", "열심히 일하자 !!!");
+
+member 테이블에 uploadfile 추가하기
+alter table member add uploadfile varchar(50) default "resources/uploadImages/basicman4.png";
+
+
