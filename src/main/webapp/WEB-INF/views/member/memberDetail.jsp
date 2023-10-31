@@ -18,40 +18,44 @@
 	<table>
 		<c:if test="${not empty requestScope.apple}">
 			<tr height="40">
-				<th bgcolor="pink">ID</th>
+				<th bgcolor="pink">아이디</th>
 				<td>${requestScope.apple.id}</td>
 			</tr>
 			<tr height="40">
-				<th bgcolor="pink">Password</th>
+				<th bgcolor="pink">비밀번호</th>
 				<td>${requestScope.apple.password}</td>
 			</tr>
 			<tr height="40">
-				<th bgcolor="pink">Name</th>
+				<th bgcolor="pink">이름</th>
 				<td>${requestScope.apple.name}</td>
 			</tr>
 			<tr height="40">
-				<th bgcolor="pink">Age</th>
+				<th bgcolor="pink">나이</th>
 				<td>${requestScope.apple.age}</td>
 			</tr>
 			<tr height="40">
-				<th bgcolor="pink">Jno</th>
+				<th bgcolor="pink">조번호</th>
 				<td>${requestScope.apple.jno}</td>
 			</tr>
 			<tr height="40">
-				<th bgcolor="pink">Info</th>
+				<th bgcolor="pink">개인정보</th>
 				<td>${requestScope.apple.info}</td>
 			</tr>
 			<tr height="40">
-				<th bgcolor="pink">Point</th>
+				<th bgcolor="pink">포인트</th>
 				<td>${requestScope.apple.point}</td>
 			</tr>
 			<tr height="40">
-				<th bgcolor="pink">Birthday</th>
+				<th bgcolor="pink">생년월일</th>
 				<td>${requestScope.apple.birthday}</td>
 			</tr>
 			<tr height="40">
 				<th bgcolor="pink">추천인</th>
 				<td>${requestScope.apple.rid}</td>
+			</tr>
+			<tr height="40">
+				<th bgcolor="pink">사진</th>
+				<td><img alt="picture" src="/web/${requestScope.apple.uploadfile }" width="50" height="60"></td>
 			</tr>
 		</c:if>
 

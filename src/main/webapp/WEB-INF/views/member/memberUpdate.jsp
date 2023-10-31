@@ -16,14 +16,13 @@
 		${requestScope.message}
 	</c:if>
 	<hr>
-	<form action="update" method="post">
+	<form action="update" method="post" enctype="multipart/form-data">
 		<table>
 			<c:if test="${not empty requestScope.apple}">
 				<tr height="40">
 					<th bgcolor="orange">ID</th>
 					<td><input type="text" name="id" size="20"
-						value="${requestScope.apple.id }" readonly="readonly">
-					</td>
+						value="${requestScope.apple.id }" readonly="readonly"></td>
 				</tr>
 
 				<tr height="40">
@@ -85,6 +84,13 @@
 						value="${requestScope.apple.rid }" size="20"></td>
 				</tr>
 				<tr height="40">
+					<th bgcolor="orange">사진</th>
+					<td>
+					<img alt="사진" class="selectImage" src="/web/${requestScope.apple.uploadfile }"  width="100" height="100">
+					<input type="hidden" name="uploadfile" value="${requestScope.apple.uploadfile }"><br>
+					<input type="file" id="uploadfilef" name="uploadfilef" size="20"></td>	<!-- 업데이트할 사진 -->
+				</tr>
+				<tr height="40">
 					<td><input type="submit" value="수정">&nbsp;&nbsp;&nbsp;
 						<input type="reset" value="취소"></td>
 				</tr>
@@ -100,4 +106,15 @@
 
 	<a class="button" href="/web/">Home</a>&nbsp;
 </body>
+<script>
+	document.getElementById('uploadfilef').onchange = function(e) {
+		if (this.files && this.files[0]) {
+			let reader = new FileReader;
+			reader.readAsDataURL(this.files[0]);
+			reader.onload = function(e) { //img src 변경
+				document.getElementsByClassName("selectImage")[0].src = e.target.result;
+			}
+		}
+	};
+</script>
 </html>

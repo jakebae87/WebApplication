@@ -19,16 +19,17 @@
 
 <table border="1" style="width:90%">
 	<tr bgcolor="Lime">
-		<th>ID</th>
-		<th>Password</th>
-		<th>Name</th>
-		<th>Age</th>
-		<th>Jno</th>
-		<th>Info</th>
-		<th>Point</th>
-		<th>Birthday</th>
-		<th>Rid</th>
-		<th>Delete</th>
+		<th>아이디</th>
+		<th>비밀번호</th>
+		<th>이름</th>
+		<th>나이</th>
+		<th>조번호</th>
+		<th>개인정보</th>
+		<th>포인트</th>
+		<th>생년월일</th>
+		<th>추천인</th>
+		<th>삭제</th>
+		<th>사진</th>
 	</tr>
 	
 	<c:if test="${not empty requestScope.banana}">
@@ -48,6 +49,9 @@
 						<a href="delete?id=${s.id}">삭제</a>
 					</c:if>
 				</td>
+				<td>
+					<img alt="picture" src="/web/${s.uploadfile }" width="100" height="100">
+				</td>
 			</tr>
 		</c:forEach>
 	</c:if>
@@ -55,7 +59,7 @@
 	<c:if test="${empty requestScope.banana}">
 		<tr>
 			<td colspan="7">
-				출력할 Data가 1건도 없습니다
+				출력할 데이터가 없습니다
 			</td>
 		</tr>
 	</c:if>
