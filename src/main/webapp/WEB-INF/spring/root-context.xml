@@ -20,6 +20,10 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 
+	<!-- 스프링시큐어리티 bean 등록 -->
+	<bean id="bCryptPasswordEncoder"
+		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
+
 	<mybatis-spring:scan base-package="mapperInterface" />
 
 </beans>

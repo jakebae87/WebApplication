@@ -20,6 +20,12 @@
 		set name = #{name}, age = #{age}, jno = #{jno}, info = #{info}, point = #{point}, birthday = #{birthday}, rid = #{rid}, uploadfile = #{uploadfile}
 		where id = #{id}
 	</update>
+	
+	<update id="updatePassword">
+		update member 
+		set password = #{password}
+		where id = #{id}
+	</update>
 
 	<delete id="delete">
 		delete from member where id = #{id}

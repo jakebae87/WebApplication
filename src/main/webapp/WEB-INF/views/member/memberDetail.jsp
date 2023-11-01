@@ -22,10 +22,6 @@
 				<td>${requestScope.apple.id}</td>
 			</tr>
 			<tr height="40">
-				<th bgcolor="pink">비밀번호</th>
-				<td>${requestScope.apple.password}</td>
-			</tr>
-			<tr height="40">
 				<th bgcolor="pink">이름</th>
 				<td>${requestScope.apple.name}</td>
 			</tr>
@@ -67,6 +63,7 @@
 
 	</table>
 	<hr>
+	<a class="button" href="updatePassword?id=${requestScope.apple.id }">비밀번호 수정</a>&nbsp; &nbsp;
 	<a class="button" href="/web/">홈으로</a>
 </body>
 </html>

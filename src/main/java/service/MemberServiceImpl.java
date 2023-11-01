@@ -48,4 +48,10 @@ public class MemberServiceImpl implements MemberMapper {
 		return dao.joList(jno);
 	}
 
+	@Override
+	public int updatePassword(MemberDTO dto) {
+		return dao.updatePassword(dto);
+	}
+
+	
 } // class
