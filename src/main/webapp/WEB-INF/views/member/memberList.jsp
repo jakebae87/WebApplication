@@ -30,6 +30,7 @@
 		<th>추천인</th>
 		<th>삭제</th>
 		<th>사진</th>
+		<th>다운로드</th>
 	</tr>
 	
 	<c:if test="${not empty requestScope.banana}">
@@ -52,6 +53,7 @@
 				<td>
 					<img alt="picture" src="/web/${s.uploadfile }" width="100" height="100">
 				</td>
+				<td><a href="download?file=${s.uploadfile}">${s.uploadfile}</a></td>
 			</tr>
 		</c:forEach>
 	</c:if>

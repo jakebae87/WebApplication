@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -83,7 +84,9 @@ public class MemberController {
 		// 개발중인지 배포중인지 확인
 		if (realPath.contains(".eclipse.")) {
 			realPath = "C:\\Users\\baedd\\git\\WebApplication\\src\\main\\webapp\\resources\\uploadImages\\"; // 데스크탑 개발
-//			realPath = "C:\\MyWorkspace\\web\\src\\main\\webapp\\resources\\uploadImages\\";				//노트북 개발
+			// realPath =
+			// "C:\\MyWorkspace\\web\\src\\main\\webapp\\resources\\uploadImages\\"; //노트북
+			// 개발
 		} else {
 			realPath += "resources\\uploadImages\\";
 		}
@@ -198,5 +201,26 @@ public class MemberController {
 			return uri;
 		}
 		return uri;
+	}
+
+	@GetMapping(value = "/download")
+	public String download(Model model, HttpServletRequest request, @RequestParam("file") String downFile) {
+		String realPath = request.getRealPath("/");
+		String fileName = downFile.substring(downFile.lastIndexOf("/") + 1);
+
+		// 개발중인지 배포중인지 확인
+		if (realPath.contains(".eclipse.")) {
+			realPath = "C:\\Users\\baedd\\git\\WebApplication\\src\\main\\webapp\\resources\\uploadImages\\"; // 데스크탑 개발
+			// realPath =
+			// "C:\\MyWorkspace\\web\\src\\main\\webapp\\resources\\uploadImages\\"; //노트북
+		} else {
+			realPath += "resources\\uploadImages\\";
+		}
+		realPath += fileName;
+
+		File file = new File(realPath);
+		model.addAttribute("downloadFile", file);
+
+		return "downloadView";
 	}
 }

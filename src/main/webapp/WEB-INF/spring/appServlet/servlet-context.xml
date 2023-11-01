@@ -25,4 +25,13 @@
 		<beans:property name="maxUploadSize" value="-1" /> <!-- value를 -1로 설정함으로써, 용량을 무제한 -->
 	</beans:bean>
 	
+	<!-- Image(file) Download -->
+	<beans:bean id="viewResolver"
+		class="org.springframework.web.servlet.view.BeanNameViewResolver">
+		<beans:property name="order" value="1" />
+	</beans:bean>
+	
+	<beans:bean id="downloadView"
+		class="downloadTest.DownloadView" />
+		
 </beans:beans>
