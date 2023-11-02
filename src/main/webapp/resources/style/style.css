@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+/*모든 button 클래스*/
 .button{
 	text-decoration: none;
 	background-color: gray;
@@ -9,4 +10,11 @@
 
 a:hover {
 	color: red;
+}
+
+/*회원가입 유효성 검사*/
+.eMessage {
+	color: red;
+	font-size: x-small;
+	font-style: italic;
 }

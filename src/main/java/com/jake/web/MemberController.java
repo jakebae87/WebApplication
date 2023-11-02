@@ -31,6 +31,18 @@ public class MemberController {
 //	@Autowired
 	MemberServiceImpl service;
 	PasswordEncoder passwordEncoder;
+	
+	@GetMapping("/idDuplication")
+	public String idDuplication(MemberDTO dto, Model model) {
+		if (service.selectOne(dto) != null) {
+			// 사용가능
+			model.addAttribute("use", "F");
+		} else {
+			// 중복
+			model.addAttribute("use", "T");
+		}
+		return "member/idDuplication";
+	}
 
 	// Lombok의 log4j Test
 	@GetMapping(value = "/log4jtest")
