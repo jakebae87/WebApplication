@@ -31,7 +31,7 @@ public class MemberController {
 //	@Autowired
 	MemberServiceImpl service;
 	PasswordEncoder passwordEncoder;
-	
+
 	@GetMapping("/idDuplication")
 	public String idDuplication(MemberDTO dto, Model model) {
 		if (service.selectOne(dto) != null) {
@@ -71,7 +71,8 @@ public class MemberController {
 			HttpSession session = request.getSession();
 			session.setAttribute("loginID", dto.getId());
 			session.setAttribute("loginName", dto.getName());
-			// session.setAttribute("loginPassword", dto.getPassword());	// session에는 비밀번호를 저장하지 않는다!
+			// session.setAttribute("loginPassword", dto.getPassword()); // session에는 비밀번호를
+			// 저장하지 않는다!
 			session.setAttribute("jno", dto.getJno());
 		} else {
 			request.setAttribute("message", "로그인 실패");
@@ -97,10 +98,8 @@ public class MemberController {
 
 		// 개발중인지 배포중인지 확인
 		if (realPath.contains(".eclipse.")) {
-			realPath = "C:\\Users\\baedd\\git\\WebApplication\\src\\main\\webapp\\resources\\uploadImages\\"; // 데스크탑 개발
-			// realPath =
-			// "C:\\MyWorkspace\\web\\src\\main\\webapp\\resources\\uploadImages\\"; //노트북
-			// 개발
+//			realPath = "C:\\Users\\baedd\\git\\WebApplication\\src\\main\\webapp\\resources\\uploadImages\\"; // 데스크탑 개발
+			realPath = "C:\\MyWorkspace\\WebApplication\\src\\main\\webapp\\resources\\uploadImages\\"; // 노트북
 		} else {
 			realPath += "resources\\uploadImages\\";
 		}
@@ -130,7 +129,7 @@ public class MemberController {
 
 		// 최종적으로 dto에 데이터베이스에 저장될 값을 set으로 넣어준다.
 		dto.setUploadfile(file2);
-		
+
 		// 비밀번호 암호화
 		dto.setPassword(passwordEncoder.encode(dto.getPassword()));
 
@@ -165,7 +164,7 @@ public class MemberController {
 		}
 		return uri;
 	}
-	
+
 	@GetMapping(value = "/updatePassword")
 	public void updatePassword(Model model, MemberDTO dto) {
 		model.addAttribute("apple", service.selectOne(dto));
@@ -200,7 +199,8 @@ public class MemberController {
 	public String update(HttpServletRequest request, MemberDTO dto, HttpSession session, RedirectAttributes rttr,
 			Model model) throws IllegalStateException, IOException {
 
-		String realPath = "C:\\Users\\baedd\\git\\WebApplication\\src\\main\\webapp\\resources\\uploadImages\\";
+//		String realPath = "C:\\Users\\baedd\\git\\WebApplication\\src\\main\\webapp\\resources\\uploadImages\\"; // 데스크탑
+		String realPath = "C:\\MyWorkspace\\WebApplication\\src\\main\\webapp\\resources\\uploadImages\\"; // 노트북
 		String file1, file2 = "";
 
 		// => newImage 선택한 경우
@@ -214,11 +214,11 @@ public class MemberController {
 		dto.setUploadfile(file2);
 
 		String uri = "redirect:/home";
-		
+
 		String password = dto.getPassword(); // 입력한 비밀번호는 변수에 저장
 
 		MemberDTO storedOne = service.selectOne(dto); // 입력한 id를 바탕으로 객체생성
-		
+
 		if (passwordEncoder.matches(password, storedOne.getPassword())) {
 			if (service.update(dto) > 0) {
 				rttr.addFlashAttribute("message", "수정 완료");
@@ -245,9 +245,8 @@ public class MemberController {
 
 		// 개발중인지 배포중인지 확인
 		if (realPath.contains(".eclipse.")) {
-			realPath = "C:\\Users\\baedd\\git\\WebApplication\\src\\main\\webapp\\resources\\uploadImages\\"; // 데스크탑 개발
-			// realPath =
-			// "C:\\MyWorkspace\\web\\src\\main\\webapp\\resources\\uploadImages\\"; //노트북
+//			realPath = "C:\\Users\\baedd\\git\\WebApplication\\src\\main\\webapp\\resources\\uploadImages\\"; // 데스크탑 개발
+			realPath = "C:\\MyWorkspace\\WebApplication\\src\\main\\webapp\\resources\\uploadImages\\"; // 노트북
 		} else {
 			realPath += "resources\\uploadImages\\";
 		}

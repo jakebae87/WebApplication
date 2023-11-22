@@ -20,7 +20,6 @@
 <table border="1" style="width:90%">
 	<tr bgcolor="Lime">
 		<th>아이디</th>
-		<th>비밀번호</th>
 		<th>이름</th>
 		<th>나이</th>
 		<th>조번호</th>
@@ -37,7 +36,6 @@
 		<c:forEach var="s" items="${requestScope.banana}">
 			<tr>
 				<td><a href="detail?id=${s.id }">${s.id}</a></td>
-				<td>${s.password}</td>
 				<td>${s.name}</td>
 				<td>${s.age}</td>
 				<td>${s.jno}</td>
